@@ -16,4 +16,4 @@
 
 В файле application.yml указаны основные настройки программы: url для запуска Swagger и порт самого приложения
 <br>По умолчанию приложение доступно http://localhost:8080/
-<br>Сам метод http://localhost:8080/loadfile
+<br>Сам метод http://localhost:8080/v1/loadfile
