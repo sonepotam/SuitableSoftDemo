@@ -26,16 +26,16 @@ public class XlsController {
         this.elementFinder = elementFinder;
     }
 
-    @PostMapping( value = "/loadfile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping( value = "/v1/loadfile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> LoadFile( @RequestParam( "file")MultipartFile file, @RequestParam( "n") int n){
-        int result = -1;
-
+        int result;
+        List<Integer> arr;
         try{
-            List<Integer> arr = processor.read( file.getInputStream());
+            arr = processor.read( file.getInputStream());
             result = elementFinder.findLargest( arr.stream().mapToInt( i -> i).toArray(), n);
         }
         catch (Exception e) {
-            return new ResponseEntity<>( e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>( e.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>( "" + result, HttpStatus.OK);
     }
