@@ -11,9 +11,10 @@
 
 # Реализация
 Сделал примитивный контроллер с одним методом. 
-<br>Тестировал под Windows10x64 
+<br>Тестировал под Windows10x64 и JDK 21.0.5
+<br>Система сборки - maven
 <br>Для запуска использовать mvmw spring-boot:run
 
 В файле application.yml указаны основные настройки программы: url для запуска Swagger и порт самого приложения
 <br>По умолчанию приложение доступно http://localhost:8080/
-<br>Сам метод http://localhost:8080/loadfile
+<br>Сам метод http://localhost:8080/v1/loadfile
